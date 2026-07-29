@@ -12,6 +12,7 @@ import RegisterPage from "../pages/RegisterPage";
 import ProductsPage from "../pages/ProductsPage";
 import CartPage from "../pages/CartPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import AIAssistantPage from "../pages/AIAssistantPage";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -42,6 +43,15 @@ function AppRouter() {
                         element={
                             <ProtectedRoute>
                                 <CartPage />
+                            </ProtectedRoute>
+                        }
+                    />
+
+                    <Route
+                        path="/ai"
+                        element={
+                            <ProtectedRoute>
+                                <AIAssistantPage />
                             </ProtectedRoute>
                         }
                     />

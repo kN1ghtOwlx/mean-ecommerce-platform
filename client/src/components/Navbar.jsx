@@ -31,6 +31,10 @@ function Navbar() {
                         Cart
                     </Link>
 
+                    <Link to="/ai">
+                        AI Assistant
+                    </Link>
+
                     {!user ? (
                         <>
                             <Link to="/login">

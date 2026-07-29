@@ -151,3 +151,41 @@ ul {
     margin-bottom: 16px;
     color: #2563eb;
 }
+
+.ai-container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.ai-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ai-form textarea {
+    width: 100%;
+    padding: 16px;
+    resize: vertical;
+    min-height: 180px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.ai-response {
+    margin-top: 30px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+}
+
+.ai-response h2 {
+    margin-bottom: 12px;
+}
+
+.ai-response p {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
