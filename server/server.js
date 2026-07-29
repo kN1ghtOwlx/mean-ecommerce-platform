@@ -2,10 +2,6 @@ import dotenv from "dotenv";
 
 const result = dotenv.config();
 
-if (result.error) {
-    throw result.error;
-}
-
 const { default: app } = await import("./app.js");
 const { default: connectDB } = await import("./config/db.js");
 
