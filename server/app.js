@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import compression from "compression";
+import rateLimit from "express-rate-limit";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import notFoundMiddleware from "./middleware/notFound.middleware.js";
@@ -28,7 +30,20 @@ app.use(
     })
 );
 app.use(helmet());
-app.use(morgan("dev"));
+app.use(compression());
+app.use(
+
+    morgan(
+
+        process.env.NODE_ENV === "production"
+
+            ? "combined"
+
+            : "dev"
+
+    )
+
+);
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
@@ -39,6 +54,20 @@ app.get("/", (req, res) => {
         message: "MERN E-Commerce Backend Running"
     })
 });
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+        success: false,
+        message:
+            "Too many requests. Please try again later.",
+    },
+});
+
+app.use("/api", limiter);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);

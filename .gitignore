@@ -1,0 +1,13 @@
+node_modules
+
+.env
+
+.env.production
+
+dist
+
+coverage
+
+.vscode
+
+.DS_Store
